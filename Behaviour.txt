@@ -1,0 +1,12 @@
+1. Description:
+Jeux de puzzle classique:
+
+Nous avons utilisées material design et bootstrap pour embellir le site
+ sur la page d'accueil il ya une petite description du jeux et des développeurs à son origine.
+
+ C'est un jeux de puzzle à trois niveaux avec plusieurs images
+
+2. Difficultés rencontrés :
+ - manques de moyen nécessaire pour faire des recherches plus pousssées
+ - le problème d'adaptation à la langue anglaise car tous les bons livres sont en anglais
+ - le temps imparties ne nous a pas permis de faire ce que l'on penser faire

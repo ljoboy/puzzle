@@ -1,0 +1,177 @@
+<!-- Made with love by Lijerbul LJOBOY : +243991888702 -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="jeux de puzzle" />
+    <meta name="author" content="Lijerbul LJOBOY" />
+    <meta name="number" content="+243991888702" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puzzle - Games</title>
+    <link rel="icon" href="images/logo-jeux.png" />
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/sweetalert.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body data-spy="scroll" id="page" onload="clock();">
+    <audio id="son">
+        <source id="son1" type="audio/mpeg">
+    </audio>
+    <div class="container">
+        <div id="title">
+            <a href="index.html">
+                <h2><span class="glyphicon glyphicon-home"></span> Puzzle Games</h2>
+            </a>
+        </div>
+        <center class="jumbotron row" id="jeux">
+            <div id="slider">
+                <form class="col-md-3">
+                    <label for="txt">Difficulté</label>
+                    <div class="radio" id="txt" onclick="checnivo()">
+                        <label>
+                            <input type="radio" name="difficullty" id="easy" value="3" checked="checked">
+                           <span class="label label-success">Facile</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="difficullty" id="medium" value="4">
+                            <span class="label label-warning">Moyen</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="difficullty" id="hard" value="5">
+                            <span class="label label-danger">Difficile</span>
+                        </label>
+                    </div>
+                    <input type="button" class="btn btn-info" onclick="aide()" value="Aide!" />
+                    <input type="button" class="btn btn-default" value="A-propos!" onclick="apropos()" />
+                </form>
+            </div>
+            <hr />
+            <div class="imgMin img-responsive">
+                <h3 id="imgTitle" class="alert alert-danger">Titre de l'image</h3>
+                <img class="img-thumbnail img-responsive" id="actualImage" />
+            </div>
+            <div class="dora">
+                <div class="alert alert-info Cp">Coup : <span id="nbCoup">0</span> | Temps Ecoulé : <span id="temps">0</span> Séc.</div>
+                <canvas class="img-thumbnail img-responsive" id="puzzle" width="600px" height="600px"></canvas>
+                <br/>
+                <div class="btn btn-group-lg" style="margin-top: -10px; margin-left: -280px">
+                    <button type="button" class="btn btn-warning" onclick="chFoto()">Changer de photo</button>
+                    <button type="button" class="btn btn-warning" id="rejouer">Rejouer!</button>
+                    <br/>
+                    <hr/>
+                    <script src="js/puzzle.js"></script>
+                </div>
+            </div>
+        </center>
+
+        <section id="follow-us">
+            <div class="container">
+                <div class="text-center height-contact-element">
+                    <h2>FOLLOW US</h2>
+                </div>
+                <img class="img-responsive displayed" src="images/short.png" alt="short" />
+                <div class="text-center height-contact-element">
+                    <ul class="list-unstyled list-inline list-social-icons">
+                        <li class="active"><a target="_blank" href="https://fb.me/jonathan.yombo"><i class="fa fa-facebook social-icons"></i></a></li>
+                        <li><a href="https://github.com/ljoboy" target="_blank"><i class="fa fa-github social-icons"></i></a></li>
+                        <li><a href="https://plus.google.com/ljoboy" target="_blank"><i class="fa fa-google-plus social-icons"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-linkedin social-icons"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <div class="row myfooter">
+                <div class="col-sm-6">
+                    <div class="pull-left">
+                        © Copyright P-Breakers <span id="annee"></span> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="pull-right">Designed by <a href="https://fb.me/ljoboy" target="_blank">Lijerbul LJOBOY</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <!--Jquery Smooth Scrolling-->
+    <script>
+        $(document).ready(function() {
+            $('.custom-menu a[href^="#"], .intro-scroller .inner-link').on('click', function(e) {
+                e.preventDefault();
+
+                var target = this.hash;
+                var $target = $(target);
+
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function() {
+                    window.location.hash = target;
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(".nav a").on("click", function() {
+            $(".nav").find(".active").removeClass("active");
+            $(this).parent().addClass("active");
+        });
+    </script>
+
+    <script>
+        //jQuery for page scrolling feature - requires jQuery Easing plugin
+        $(function() {
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('body').append('<div id="toTop" class="btn btn-primary color1"><span class="glyphicon glyphicon-chevron-up"></span></div>');
+            $(window).scroll(function() {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 700);
+                return false;
+            });
+        });
+    </script>
+
+</body>
+
+</html>
