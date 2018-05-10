@@ -1,5 +1,6 @@
 # PUZZLE DORA
 ![Puzze game](images/puzzle.jpg)
+
 Puzzle **DORA** est un jeu de puzzle fait en *javascript* qui consiste simplement à reconstituer une image en déplaçant les cases. Naviguer librement entre les niveaux et les images en écoutant de la bonne musique pour vous relaxer.
 ## Comment jouer
 Télécharger la source en faisant un :
